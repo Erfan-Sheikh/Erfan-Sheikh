@@ -1,5 +1,3 @@
 title: Erfan Sheikhhoseini
-description: Architect is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
+show_downloads: false
 theme: jekyll-theme-architect
