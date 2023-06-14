@@ -1,8 +1,17 @@
 ---
 layout: default
 ---
+
+
 # **About me**
-> <img src="me.jpg" alt="me" style="width:100px;height:100px;"> 
+<style>
+    img {
+        border-radius: 50%;
+    }
+</style>
+
+<img src="/media/cat.jpeg" alt="" />
+<img src="me.jpg" alt="me" style="width:100px;height:100px;"> 
 
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
 >  <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
