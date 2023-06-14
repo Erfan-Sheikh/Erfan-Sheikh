@@ -16,14 +16,20 @@ layout: default
 
   <style>
     #ABC {
-      background-color: blue;
-      border: 1px solid red;
+      background-color: grey;
+      border: 3px solid black;
     }
   </style>
 
-> Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.    
->  <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
->  <a href="https://twitter.com/_erfan_sh">@_erfan_sh</a>
+  <body>
+  <section id="ABC">
+     Erfan Sheikhhoseini is a Technical Artist and GameDeveloper. 
+     <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>  
+     <a href="https://twitter.com/_erfan_sh">@_erfan_sh</a>
+  </section>
+</body>
+
+
 
 
 
