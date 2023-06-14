@@ -11,7 +11,7 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
 > [erfan.sheikhhoseini@gmail.com](./erfan.sheikhhoseini@gmail.com).   
 > [@_erfan_sh](./twitter.com/_erfan_sh).   
->  <a href="erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
+>  <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
 >  <a href="https://twitter.com/_erfan_sh">@_erfan_sh</a>
 > 
 > When something is important enough, you do it even if the odds are not in your favor. 
