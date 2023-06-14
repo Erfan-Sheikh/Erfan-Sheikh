@@ -1,11 +1,6 @@
 ---
 layout: default
 ---
-
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-
-
 # **About me**
  <img src="me.jpg" alt="Me">
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
