@@ -10,7 +10,6 @@ layout: default
     }
 </style>
 
-<img src="/media/cat.jpeg" alt="" />
 <img src="me.jpg" alt="me" style="width:100px;height:100px;"> 
 
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
