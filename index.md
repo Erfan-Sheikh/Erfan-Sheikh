@@ -2,7 +2,8 @@
 layout: default
 ---
 # **About me**
- <img src="me.jpg" alt="Me">
+> <img src="me.jpg" alt="me" style="width:100px;height:100px;"> 
+
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
 >  <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
 >  <a href="https://twitter.com/_erfan_sh">@_erfan_sh</a>
