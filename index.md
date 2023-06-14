@@ -14,11 +14,13 @@ layout: default
 
 <img src="me.jpg" alt="me" style="width:100px;height:100px;"> 
 
-> Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
+<table style="background-color:#33475b">
+
+> Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.    
 >  <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
 >  <a href="https://twitter.com/_erfan_sh">@_erfan_sh</a>
-> 
-> When something is important enough, you do it even if the odds are not in your favor. 
+
+</table>
 
 [Link to another page](./another-page.html).
 
