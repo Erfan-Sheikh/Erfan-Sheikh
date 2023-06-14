@@ -6,10 +6,11 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 
 
-## **About me**
+# **About me**
 
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
-> erfan.sheikhhoseini@gmail.com
+> [erfan.sheikhhoseini@gmail.com](./erfan.sheikhhoseini@gmail.com).   
+> [@_erfan_sh](./twitter.com/_erfan_sh).
 > 
 > When something is important enough, you do it even if the odds are not in your favor. 
 
