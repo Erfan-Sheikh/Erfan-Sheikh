@@ -4,6 +4,15 @@ layout: default
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
+
+
+## **About me**
+
+> Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.
+> erfan.sheikhhoseini@gmail.com
+> 
+> When something is important enough, you do it even if the odds are not in your favor. 
+
 [Link to another page](./another-page.html).
 
 There should be whitespace between paragraphs.
