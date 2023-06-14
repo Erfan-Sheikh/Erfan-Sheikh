@@ -14,13 +14,19 @@ layout: default
 
 <img src="me.jpg" alt="me" style="width:100px;height:100px;"> 
 
-<table style="background-color:#33475b">
+  <style>
+    #ABC {
+      background-color: blue;
+      border: 1px solid red;
+    }
+  </style>
 
 > Erfan Sheikhhoseini is a Technical Artist and GameDeveloper.    
 >  <a href="mailto:erfan.sheikhhoseini@gmail.com">erfan.sheikhhoseini@gmail.com</a>   
 >  <a href="https://twitter.com/_erfan_sh">@_erfan_sh</a>
 
-</table>
+
+
 
 [Link to another page](./another-page.html).
 
