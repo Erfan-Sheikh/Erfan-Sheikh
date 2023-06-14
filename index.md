@@ -7,6 +7,8 @@ layout: default
 <style>
     img {
         border-radius: 50%;
+        padding-left:2em;
+        padding-right:2em;
     }
 </style>
 
