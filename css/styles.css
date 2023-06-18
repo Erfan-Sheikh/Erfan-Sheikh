@@ -7651,6 +7651,7 @@ textarea.form-control-lg {
 }
 
 .mb-1 {
+  color:white;
   margin-bottom: 0.25rem !important;
 }
 
@@ -7667,6 +7668,7 @@ textarea.form-control-lg {
 }
 
 .mb-5 {
+  color:#c6c6c6;
   margin-bottom: 3rem !important;
 }
 
