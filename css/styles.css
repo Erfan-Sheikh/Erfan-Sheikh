@@ -7674,6 +7674,11 @@ textarea.form-control-lg {
   margin-bottom: 3rem !important;
 }
 
+.mb-6 {
+  color:#293E40;
+  margin-bottom: 3rem !important;
+}
+
 .mb-auto {
   margin-bottom: auto !important;
 }
@@ -10845,6 +10850,11 @@ html {
 }
 
 .content-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.portfolio-section {
   padding-top: 3rem;
   padding-bottom: 6rem;
 }
