@@ -51,7 +51,7 @@
   --bs-warning-rgb: 236, 184, 7;
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
+  --bs-dark-rgb: 26, 28, 29;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
@@ -11123,7 +11123,7 @@ footer.footer .social-link:hover {
 }
 
 .service-icon {
-  background-color: #fff;
+  background-color: #1A1C1D;
   color: #1D809F;
   height: 7rem;
   width: 7rem;
