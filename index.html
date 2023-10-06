@@ -444,15 +444,21 @@
 
         function ShowAllAndRemoveButton() {
             ShowAll();
+            RemoveLoadMoreButton();
+        }
+
+        function RemoveLoadMoreButton() {
             document.getElementById("ShowMoreButton").style.display = 'none';
         }
         function ShowModeling() {
             hideAllPortfolioItems(); // hide
             document.getElementById("EnvArt").style.display = 'block';
+            RemoveLoadMoreButton();
         }
         function ShowTexturing() {
             hideAllPortfolioItems(); // hide
             document.getElementById("EnvArt").style.display = 'block';
+            RemoveLoadMoreButton();
         }
         function ShowCoding() {
             hideAllPortfolioItems(); // hide
@@ -468,6 +474,7 @@
             document.getElementById("Pottery").style.display = 'block';
             document.getElementById("Jewelry").style.display = 'block';
             document.getElementById("RPSRun").style.display = 'block';
+            RemoveLoadMoreButton();
         }
         function ShowShaders() {
             hideAllPortfolioItems(); // hide
@@ -475,6 +482,7 @@
             document.getElementById("Aurora2").style.display = 'block';
             document.getElementById("Shader01").style.display = 'block';
             document.getElementById("Shader02").style.display = 'block';
+            RemoveLoadMoreButton();
 
         }
         function ShowFavorite(){
