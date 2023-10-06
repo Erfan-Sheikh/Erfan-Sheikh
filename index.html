@@ -324,9 +324,13 @@
                         <img class="img-fluid" src="assets/img/CandyMaster.webp" alt="..." />
                     </a>
                 </div>
-            </div>
+                <p style="margin-bottom:.5cm;"></p>
+                <a id="ShowMoreButton" class="btn btn-primary btn-xl" href="javascript:void(0);" onclick="ShowAllAndRemoveButton()">Load More</a>
+            </div>       
         </div>
     </section>
+    <!-- Add this button before the "Contact me" button -->
+
     <!-- About-->
     <!-- <section class="content-section bg-dark" id="about"> -->
     <!-- <div class="container px-4 px-lg-5 text-center"> -->
@@ -436,6 +440,11 @@
             document.getElementById("Pottery").style.display = 'block';
             document.getElementById("Jewelry").style.display = 'block';
             document.getElementById("RPSRun").style.display = 'block';
+        }
+
+        function ShowAllAndRemoveButton() {
+            ShowAll();
+            document.getElementById("ShowMoreButton").style.display = 'none';
         }
         function ShowModeling() {
             hideAllPortfolioItems(); // hide
