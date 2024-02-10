@@ -1,1 +1,1 @@
-Doing Unity Shaders and some python plugins.
+Doing Unity C#/Shaders/Editor Tools, python plugins.
