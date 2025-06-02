@@ -13012,3 +13012,27 @@ footer.footer .social-link:hover {
 .portfolio-item:hover .caption .caption-content {
   opacity: 0;
 }
+
+.modal-content {
+    background-color: #222;
+    color: #fff;
+}
+
+.modal-header, .modal-footer {
+    border-color: #444;
+}
+
+.carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
