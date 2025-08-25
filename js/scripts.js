@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
     // Initialize portfolio filter on page load - show 'recent' initially
-    filterProjects('recent');
+    filterProjects('all');
 
 }); // End of DOMContentLoaded
 
