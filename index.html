@@ -1,11 +1,11 @@
 <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
         if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
             try {
                 var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
@@ -19,11 +19,11 @@
 
                 // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
                 var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
                 );
                 // Fallback
                 if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
+                    headerRowIndex = 0;
                 }
 
                 // Convert filtered JSON back to CSV
@@ -36,27 +36,32 @@
             }
         }
         return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+    }
+</script>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Google tag (gtag.js) --> 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4NVD2011E"></script> 
-    <script> 
-        window.dataLayer = window.dataLayer || []; 
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date()); 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4NVD2011E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
         gtag('config', 'G-Q4NVD2011E'); 
-    </script> 
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Erfan Sheikh's portfolio showcasing work in Unity development, 3D modeling, shader programming, and game design.">
+    <meta name="description"
+        content="Erfan Sheikh's portfolio showcasing work in Unity development, 3D modeling, shader programming, and game design.">
     <meta name="author" content="Erfan Sheikhhoseini" />
     <title>Erfan Sheikh Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" />
     <style>
         .social-link {
@@ -70,6 +75,7 @@
             border-radius: 50%;
             transition: background 0.2s;
         }
+
         .social-link i {
             margin: 0;
             display: flex;
@@ -78,6 +84,7 @@
             width: 1.5rem;
             height: 1.5rem;
         }
+
         .social-link img {
             width: 1.5rem;
             height: 1.5rem;
@@ -85,10 +92,11 @@
             display: block;
             margin: auto;
         }
-        /* ArtStation icon larger */
 
+        /* ArtStation icon larger */
     </style>
 </head>
+
 <body id="page-top">
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper">
@@ -124,7 +132,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <span class="service-icon rounded-circle mx-auto mb-3">
-                        <img class="img-fluid" src="assets/img/Shader.png" alt="Shader creation for unity using hlsl and shader graph" />
+                        <img class="img-fluid" src="assets/img/Shader.png"
+                            alt="Shader creation for unity using hlsl and shader graph" />
                     </span>
                     <h4><strong>Shader Magic</strong></h4>
                     <p class="text-faded mb-0">HLSL, Shader Graph & VFX Graph</p>
@@ -138,7 +147,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <span class="service-icon rounded-circle mx-auto mb-3">
-                        <img class="img-fluid" src="assets/img/Texturing.png" alt="Texture painting and uv mapping with substance painter and maya" />
+                        <img class="img-fluid" src="assets/img/Texturing.png"
+                            alt="Texture painting and uv mapping with substance painter and maya" />
                     </span>
                     <h4><strong>Texturing & UV Mapping</strong></h4>
                     <p class="text-faded mb-0">Substance Painter</p>
@@ -167,7 +177,8 @@
                                 <p class="mb-0">Monument Valley like shader.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio-5.jpg" alt="Monument Valley game shader replica" />
+                        <img class="img-fluid" src="assets/img/portfolio-5.jpg"
+                            alt="Monument Valley game shader replica" />
                     </a>
                 </div>
                 <div id="EnvArt" class="col-lg-3 project-item techArt">
@@ -178,7 +189,8 @@
                                 <p class="mb-0">Unity Environment using Unity HDRP.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/bg-masthead.jpg" alt="Unity hdrp realistic shaders and effects" />
+                        <img class="img-fluid" src="assets/img/bg-masthead.jpg"
+                            alt="Unity hdrp realistic shaders and effects" />
                     </a>
                 </div>
                 <div id="Shader01" class="col-lg-3 project-item techArt">
@@ -189,7 +201,8 @@
                                 <p class="mb-0">Shader experiment using Unity HDRP.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="Unity hdrp realistic grass shader" />
+                        <img class="img-fluid" src="assets/img/portfolio-4.jpg"
+                            alt="Unity hdrp realistic grass shader" />
                     </a>
                 </div>
                 <div id="Machinarium" class="col-lg-3 project-item techArt">
@@ -200,7 +213,8 @@
                                 <p class="mb-0">Cinema4d, Redshift, Substance Painter.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="3d modeling and texture painting in cinema4d, blender and substance painter" />
+                        <img class="img-fluid" src="assets/img/portfolio-3.jpg"
+                            alt="3d modeling and texture painting in cinema4d, blender and substance painter" />
                     </a>
                 </div>
                 <div id="Aurora1" class="col-lg-3 project-item techArt recent">
@@ -211,7 +225,8 @@
                                 <p class="mb-0">Minimalistic shaders and effects for mobile.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="Minimalistic shaders and effect for an indie mobile game" />
+                        <img class="img-fluid" src="assets/img/portfolio-1.jpg"
+                            alt="Minimalistic shaders and effect for an indie mobile game" />
                     </a>
                 </div>
                 <div id="Aurora2" class="col-lg-3 project-item techArt recent">
@@ -222,7 +237,8 @@
                                 <p class="mb-0">Water & Billboard shader, Subtle effects.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="Minimalistic shaders and effect for an indie mobile game" />
+                        <img class="img-fluid" src="assets/img/portfolio-2.jpg"
+                            alt="Minimalistic shaders and effect for an indie mobile game" />
                     </a>
                 </div>
                 <div id="4Wheelers" class="col-lg-3 project-item gameDev">
@@ -233,7 +249,8 @@
                                 <p class="mb-0">The Award Winning Game I worked on.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/4Wheelers.webp" alt="Award winning game called 4wheelers" />
+                        <img class="img-fluid" src="assets/img/4Wheelers.webp"
+                            alt="Award winning game called 4wheelers" />
                     </a>
                 </div>
                 <div id="CouplesYoga" class="col-lg-3 project-item gameDev">
@@ -244,7 +261,8 @@
                                 <p class="mb-0">Voodoo HyperCasual hit game.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/CouplesYoga.webp" alt="Voodoo HyperCasual game Couples Yoga" />
+                        <img class="img-fluid" src="assets/img/CouplesYoga.webp"
+                            alt="Voodoo HyperCasual game Couples Yoga" />
                     </a>
                 </div>
                 <div id="Starla" class="col-lg-3 project-item gameDev">
@@ -266,7 +284,8 @@
                                 <p class="mb-0">A HyperCasual Game.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/BeatySalon V3.webp" alt="HyperCasual game Beauty Salon" />
+                        <img class="img-fluid" src="assets/img/BeatySalon V3.webp"
+                            alt="HyperCasual game Beauty Salon" />
                     </a>
                 </div>
                 <div id="DrCare" class="col-lg-3 project-item gameDev">
@@ -343,7 +362,8 @@
                                 <p class="mb-0">A HyperCasual Game.</p>
                             </div>
                         </div>
-                        <img class="img-fluid" src="assets/img/RPS-Run.webp" alt="HyperCasual game Rock Paper Scissors" />
+                        <img class="img-fluid" src="assets/img/RPS-Run.webp"
+                            alt="HyperCasual game Rock Paper Scissors" />
                     </a>
                 </div>
                 <div id="CandyMaster" class="col-lg-3 project-item gameDev">
@@ -358,11 +378,13 @@
                     </a>
                 </div>
                 <p style="margin-bottom:.5cm;"></p>
-                <a id="ShowMoreButton" class="btn btn-primary btn-xl" href="javascript:void(0);" onclick="showAllInCategory()">Load More</a>
+                <a id="ShowMoreButton" class="btn btn-primary btn-xl" href="javascript:void(0);"
+                    onclick="showAllInCategory()">Load More</a>
             </div>
         </div>
         <!-- Modals -->
-        <div class="modal fade" id="modalShader02" tabindex="-1" aria-labelledby="modalShader02Label" aria-hidden="true">
+        <div class="modal fade" id="modalShader02" tabindex="-1" aria-labelledby="modalShader02Label"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -370,29 +392,37 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselShader02" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselShader02" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/portfolio-5.jpg" class="d-block w-100" alt="Shader Experiment Image 1">
+                                    <img src="assets/img/portfolio-5.jpg" class="d-block w-200"
+                                        alt="Shader Experiment Image 1">
+                                </div>
+                                <!-- <div class="carousel-item">
+                                    <img src="assets/img/shader02_additional1.jpg" class="d-block w-100"
+                                        alt="Shader Experiment Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/shader02_additional1.jpg" class="d-block w-100" alt="Shader Experiment Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="assets/img/shader02_additional2.jpg" class="d-block w-100" alt="Shader Experiment Image 3">
-                                </div>
+                                    <img src="assets/img/shader02_additional2.jpg" class="d-block w-100"
+                                        alt="Shader Experiment Image 3">
+                                </div> -->
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselShader02" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselShader02"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselShader02" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselShader02"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">This project replicates the iconic Monument Valley shader style using Unity's Shader Graph. It focuses on creating stylized, low-poly visuals with dynamic lighting effects. The shader was optimized for performance and tested across multiple platforms.</p>
-                        <a href="https://www.artstation.com/artwork/BX2bL4" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
+                        <p class="mt-3">This project replicates the iconic Monument Valley shader style using Unity's
+                            Shader Graph. It focuses on creating stylized, low-poly visuals with dynamic lighting
+                            effects. The shader was optimized for performance and tested across multiple platforms.</p>
+                        <a href="https://www.artstation.com/artwork/BX2bL4" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -408,29 +438,37 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselEnvArt" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselEnvArt" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/bg-masthead.jpg" class="d-block w-100" alt="Environment Art Image 1">
+                                    <img src="assets/img/bg-masthead.jpg" class="d-block w-100"
+                                        alt="Environment Art Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/envart_additional1.jpg" class="d-block w-100" alt="Environment Art Image 2">
+                                    <img src="assets/img/envart_additional1.jpg" class="d-block w-100"
+                                        alt="Environment Art Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/envart_additional2.jpg" class="d-block w-100" alt="Environment Art Image 3">
+                                    <img src="assets/img/envart_additional2.jpg" class="d-block w-100"
+                                        alt="Environment Art Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselEnvArt" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselEnvArt"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselEnvArt" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselEnvArt"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A Unity HDRP environment showcasing realistic shaders, dynamic lighting, and atmospheric effects. This project emphasizes high-fidelity visuals and optimized rendering for immersive experiences.</p>
-                        <a href="https://www.artstation.com/artwork/6N5Xlx" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
+                        <p class="mt-3">A Unity HDRP environment showcasing realistic shaders, dynamic lighting, and
+                            atmospheric effects. This project emphasizes high-fidelity visuals and optimized rendering
+                            for immersive experiences.</p>
+                        <a href="https://www.artstation.com/artwork/6N5Xlx" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -438,7 +476,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalShader01" tabindex="-1" aria-labelledby="modalShader01Label" aria-hidden="true">
+        <div class="modal fade" id="modalShader01" tabindex="-1" aria-labelledby="modalShader01Label"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -446,29 +485,37 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselShader01" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselShader01" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/portfolio-4.jpg" class="d-block w-100" alt="Grass Shader Image 1">
+                                    <img src="assets/img/portfolio-4.jpg" class="d-block w-100"
+                                        alt="Grass Shader Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/shader01_additional1.jpg" class="d-block w-100" alt="Grass Shader Image 2">
+                                    <img src="assets/img/shader01_additional1.jpg" class="d-block w-100"
+                                        alt="Grass Shader Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/shader01_additional2.jpg" class="d-block w-100" alt="Grass Shader Image 3">
+                                    <img src="assets/img/shader01_additional2.jpg" class="d-block w-100"
+                                        alt="Grass Shader Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselShader01" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselShader01"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselShader01" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselShader01"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">This project explores realistic grass rendering using Unity HDRP. The shader includes dynamic wind effects and procedural placement for a natural look, optimized for real-time performance.</p>
-                        <a href="https://www.artstation.com/artwork/Rya2RO" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
+                        <p class="mt-3">This project explores realistic grass rendering using Unity HDRP. The shader
+                            includes dynamic wind effects and procedural placement for a natural look, optimized for
+                            real-time performance.</p>
+                        <a href="https://www.artstation.com/artwork/Rya2RO" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -476,7 +523,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalMachinarium" tabindex="-1" aria-labelledby="modalMachinariumLabel" aria-hidden="true">
+        <div class="modal fade" id="modalMachinarium" tabindex="-1" aria-labelledby="modalMachinariumLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -484,29 +532,37 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselMachinarium" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselMachinarium" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/portfolio-3.jpg" class="d-block w-100" alt="Machinarium FanArt Image 1">
+                                    <img src="assets/img/portfolio-3.jpg" class="d-block w-100"
+                                        alt="Machinarium FanArt Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/machinarium_additional1.jpg" class="d-block w-100" alt="Machinarium FanArt Image 2">
+                                    <img src="assets/img/machinarium_additional1.jpg" class="d-block w-100"
+                                        alt="Machinarium FanArt Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/machinarium_additional2.jpg" class="d-block w-100" alt="Machinarium FanArt Image 3">
+                                    <img src="assets/img/machinarium_additional2.jpg" class="d-block w-100"
+                                        alt="Machinarium FanArt Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMachinarium" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMachinarium"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMachinarium" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMachinarium"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A fan art project inspired by Machinarium, created using Cinema4D, Redshift, and Substance Painter. This work focuses on detailed 3D modeling and texturing to capture the game's unique aesthetic.</p>
-                        <a href="https://www.artstation.com/artwork/P06D1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
+                        <p class="mt-3">A fan art project inspired by Machinarium, created using Cinema4D, Redshift, and
+                            Substance Painter. This work focuses on detailed 3D modeling and texturing to capture the
+                            game's unique aesthetic.</p>
+                        <a href="https://www.artstation.com/artwork/P06D1" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -522,33 +578,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselAurora1" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselAurora1" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/portfolio-1.jpg" class="d-block w-100" alt="Aurora Menu Image 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="assets/img/aurora1_additional1.jpg" class="d-block w-100" alt="Aurora Menu Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="assets/img/aurora1_additional2.jpg" class="d-block w-100" alt="Aurora Menu Image 3">
-                                </div>
-                                <div class="carousel-item">
                                     <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/iAP0hbyaSK0" title="Aurora Menu" allowfullscreen></iframe>
+                                        <iframe src="https://www.youtube.com/embed/iAP0hbyaSK0" title="Aurora Menu"
+                                            allowfullscreen></iframe>
                                     </div>
                                 </div>
+                                <!-- <div class="carousel-item ">
+                                    <img src="assets/img/portfolio-1.jpg" class="d-block w-100"
+                                        alt="Aurora Menu Image 1">
+                                </div> -->
+                                <!-- <div class="carousel-item">
+                                    <img src="assets/img/aurora1_additional1.jpg" class="d-block w-100" alt="Aurora Menu Image 2">
+                                </div> -->
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAurora1" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAurora1"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAurora1" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAurora1"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">Minimalistic shaders and effects designed for a mobile game menu, created using Unity. The project focuses on lightweight visuals and smooth performance on low-end devices.</p>
+                        <p class="mt-3">Minimalistic shaders and effects designed for a mobile game menu, created using
+                            Unity. The project focuses on lightweight visuals and smooth performance on low-end devices.
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -564,33 +623,40 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselAurora2" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselAurora2" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/portfolio-2.jpg" class="d-block w-100" alt="Aurora In Game Image 1">
+                                    <img src="assets/img/portfolio-2.jpg" class="d-block w-100"
+                                        alt="Aurora In Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/aurora2_additional1.jpg" class="d-block w-100" alt="Aurora In Game Image 2">
+                                    <img src="assets/img/aurora2_additional1.jpg" class="d-block w-100"
+                                        alt="Aurora In Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/aurora2_additional2.jpg" class="d-block w-100" alt="Aurora In Game Image 3">
+                                    <img src="assets/img/aurora2_additional2.jpg" class="d-block w-100"
+                                        alt="Aurora In Game Image 3">
                                 </div>
                                 <div class="carousel-item">
                                     <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/UeOFgDJrB90" title="Aurora In Game" allowfullscreen></iframe>
+                                        <iframe src="https://www.youtube.com/embed/UeOFgDJrB90" title="Aurora In Game"
+                                            allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAurora2" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAurora2"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAurora2" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAurora2"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">In-game effects for an indie mobile game, featuring water and billboard shaders with subtle visual effects, optimized for mobile platforms using Unity.</p>
+                        <p class="mt-3">In-game effects for an indie mobile game, featuring water and billboard shaders
+                            with subtle visual effects, optimized for mobile platforms using Unity.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -598,7 +664,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modal4Wheelers" tabindex="-1" aria-labelledby="modal4WheelersLabel" aria-hidden="true">
+        <div class="modal fade" id="modal4Wheelers" tabindex="-1" aria-labelledby="modal4WheelersLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -606,29 +673,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carousel4Wheelers" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carousel4Wheelers" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/4Wheelers.webp" class="d-block w-100" alt="4Wheelers Game Image 1">
+                                    <img src="assets/img/4Wheelers.webp" class="d-block w-100"
+                                        alt="4Wheelers Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/4wheelers_additional1.jpg" class="d-block w-100" alt="4Wheelers Game Image 2">
+                                    <img src="assets/img/4wheelers_additional1.jpg" class="d-block w-100"
+                                        alt="4Wheelers Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/4wheelers_additional2.jpg" class="d-block w-100" alt="4Wheelers Game Image 3">
+                                    <img src="assets/img/4wheelers_additional2.jpg" class="d-block w-100"
+                                        alt="4Wheelers Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel4Wheelers" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel4Wheelers"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel4Wheelers" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel4Wheelers"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">An award-winning multiplayer game developed in Unity, featuring engaging gameplay and polished design. I contributed to shader development and visual effects.</p>
-                        <a href="https://www.imgawards.com/game-of-the-week/4wheelers-imga-mena-best-multiplayer-game-with-a-damn-good-design-too/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on IMGA</a>
+                        <p class="mt-3">An award-winning multiplayer game developed in Unity, featuring engaging
+                            gameplay and polished design. I contributed to shader development and visual effects.</p>
+                        <a href="https://www.imgawards.com/game-of-the-week/4wheelers-imga-mena-best-multiplayer-game-with-a-damn-good-design-too/"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on IMGA</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -636,7 +710,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalCouplesYoga" tabindex="-1" aria-labelledby="modalCouplesYogaLabel" aria-hidden="true">
+        <div class="modal fade" id="modalCouplesYoga" tabindex="-1" aria-labelledby="modalCouplesYogaLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -644,29 +719,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselCouplesYoga" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselCouplesYoga" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/CouplesYoga.webp" class="d-block w-100" alt="Couples Yoga Game Image 1">
+                                    <img src="assets/img/CouplesYoga.webp" class="d-block w-100"
+                                        alt="Couples Yoga Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/couplesyoga_additional1.jpg" class="d-block w-100" alt="Couples Yoga Game Image 2">
+                                    <img src="assets/img/couplesyoga_additional1.jpg" class="d-block w-100"
+                                        alt="Couples Yoga Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/couplesyoga_additional2.jpg" class="d-block w-100" alt="Couples Yoga Game Image 3">
+                                    <img src="assets/img/couplesyoga_additional2.jpg" class="d-block w-100"
+                                        alt="Couples Yoga Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCouplesYoga" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCouplesYoga"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselCouplesYoga" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselCouplesYoga"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A Voodoo HyperCasual hit game developed in Unity, featuring intuitive mechanics and vibrant visuals. I worked on gameplay programming and visual polish.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.tippytap.yoga&hl=en&gl=US" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on Google Play</a>
+                        <p class="mt-3">A Voodoo HyperCasual hit game developed in Unity, featuring intuitive mechanics
+                            and vibrant visuals. I worked on gameplay programming and visual polish.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.tippytap.yoga&hl=en&gl=US"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on Google Play</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -682,29 +764,35 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselStarla" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselStarla" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="assets/img/Starla.webp" class="d-block w-100" alt="Starla Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/starla_additional1.jpg" class="d-block w-100" alt="Starla Game Image 2">
+                                    <img src="assets/img/starla_additional1.jpg" class="d-block w-100"
+                                        alt="Starla Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/starla_additional2.jpg" class="d-block w-100" alt="Starla Game Image 3">
+                                    <img src="assets/img/starla_additional2.jpg" class="d-block w-100"
+                                        alt="Starla Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselStarla" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselStarla"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselStarla" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselStarla"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A space shooter game developed in Unity, featuring fast-paced gameplay and dynamic visual effects. I contributed to core mechanics and shader programming.</p>
-                        <a href="https://play.google.com/store/apps/details?id=games.FunTherapy.StarlaTheFinalFrontier" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on Google Play</a>
+                        <p class="mt-3">A space shooter game developed in Unity, featuring fast-paced gameplay and
+                            dynamic visual effects. I contributed to core mechanics and shader programming.</p>
+                        <a href="https://play.google.com/store/apps/details?id=games.FunTherapy.StarlaTheFinalFrontier"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on Google Play</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -712,7 +800,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalBeautySalon" tabindex="-1" aria-labelledby="modalBeautySalonLabel" aria-hidden="true">
+        <div class="modal fade" id="modalBeautySalon" tabindex="-1" aria-labelledby="modalBeautySalonLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -720,27 +809,32 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselBeautySalon" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselBeautySalon" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/BeatySalon V3.webp" class="d-block w-100" alt="Beauty Salon Game Image 1">
+                                    <img src="assets/img/BeatySalon V3.webp" class="d-block w-100"
+                                        alt="Beauty Salon Game Image 1">
                                 </div>
                                 <div class="carousel-item">
                                     <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/yLbhTmEwLs8" title="Beauty Salon Game" allowfullscreen></iframe>
+                                        <iframe src="https://www.youtube.com/embed/yLbhTmEwLs8"
+                                            title="Beauty Salon Game" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBeautySalon" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBeautySalon"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselBeautySalon" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselBeautySalon"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A HyperCasual game developed in Unity, focusing on simple yet engaging mechanics and vibrant visuals for a broad audience.</p>
+                        <p class="mt-3">A HyperCasual game developed in Unity, focusing on simple yet engaging mechanics
+                            and vibrant visuals for a broad audience.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -756,29 +850,35 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselDrCare" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselDrCare" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="assets/img/Dr-Care.webp" class="d-block w-100" alt="Dr Care Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/drcare_additional1.jpg" class="d-block w-100" alt="Dr Care Game Image 2">
+                                    <img src="assets/img/drcare_additional1.jpg" class="d-block w-100"
+                                        alt="Dr Care Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/drcare_additional2.jpg" class="d-block w-100" alt="Dr Care Game Image 3">
+                                    <img src="assets/img/drcare_additional2.jpg" class="d-block w-100"
+                                        alt="Dr Care Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDrCare" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDrCare"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselDrCare" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselDrCare"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/slAyZdgGu9M" title="Dr Care Game" frameborder="0" allowfullscreen></iframe>
-                        <p class="mt-3">A HyperCasual game developed in Unity, featuring intuitive medical-themed gameplay and clean visual design.</p>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/slAyZdgGu9M"
+                            title="Dr Care Game" frameborder="0" allowfullscreen></iframe>
+                        <p class="mt-3">A HyperCasual game developed in Unity, featuring intuitive medical-themed
+                            gameplay and clean visual design.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -786,7 +886,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalIceSlide" tabindex="-1" aria-labelledby="modalIceSlideLabel" aria-hidden="true">
+        <div class="modal fade" id="modalIceSlide" tabindex="-1" aria-labelledby="modalIceSlideLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -794,29 +895,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselIceSlide" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselIceSlide" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/IceSlide.webp" class="d-block w-100" alt="Ice Slide Game Image 1">
+                                    <img src="assets/img/IceSlide.webp" class="d-block w-100"
+                                        alt="Ice Slide Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/iceslide_additional1.jpg" class="d-block w-100" alt="Ice Slide Game Image 2">
+                                    <img src="assets/img/iceslide_additional1.jpg" class="d-block w-100"
+                                        alt="Ice Slide Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/iceslide_additional2.jpg" class="d-block w-100" alt="Ice Slide Game Image 3">
+                                    <img src="assets/img/iceslide_additional2.jpg" class="d-block w-100"
+                                        alt="Ice Slide Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIceSlide" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIceSlide"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselIceSlide" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselIceSlide"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A HyperCasual game developed in Unity, featuring smooth sliding mechanics and icy-themed visuals for an engaging mobile experience.</p>
-                        <a href="https://apps.apple.com/us/app/ice-sling/id1549363450" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on App Store</a>
+                        <p class="mt-3">A HyperCasual game developed in Unity, featuring smooth sliding mechanics and
+                            icy-themed visuals for an engaging mobile experience.</p>
+                        <a href="https://apps.apple.com/us/app/ice-sling/id1549363450" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-primary">View on App Store</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -832,29 +940,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselIpear" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselIpear" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/Ipear.webp" class="d-block w-100" alt="Make Your Mac Game Image 1">
+                                    <img src="assets/img/Ipear.webp" class="d-block w-100"
+                                        alt="Make Your Mac Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/ipear_additional1.jpg" class="d-block w-100" alt="Make Your Mac Game Image 2">
+                                    <img src="assets/img/ipear_additional1.jpg" class="d-block w-100"
+                                        alt="Make Your Mac Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/ipear_additional2.jpg" class="d-block w-100" alt="Make Your Mac Game Image 3">
+                                    <img src="assets/img/ipear_additional2.jpg" class="d-block w-100"
+                                        alt="Make Your Mac Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIpear" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIpear"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselIpear" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselIpear"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/AHJmubpwkDk" title="Make Your Mac Game" frameborder="0" allowfullscreen></iframe>
-                        <p class="mt-3">A HyperCasual game developed in Unity, allowing players to customize and create unique Mac-inspired designs with simple mechanics.</p>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/AHJmubpwkDk"
+                            title="Make Your Mac Game" frameborder="0" allowfullscreen></iframe>
+                        <p class="mt-3">A HyperCasual game developed in Unity, allowing players to customize and create
+                            unique Mac-inspired designs with simple mechanics.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -862,7 +977,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalPowerWasher" tabindex="-1" aria-labelledby="modalPowerWasherLabel" aria-hidden="true">
+        <div class="modal fade" id="modalPowerWasher" tabindex="-1" aria-labelledby="modalPowerWasherLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -870,29 +986,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselPowerWasher" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselPowerWasher" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/PowerWasher.webp" class="d-block w-100" alt="Power Washer Game Image 1">
+                                    <img src="assets/img/PowerWasher.webp" class="d-block w-100"
+                                        alt="Power Washer Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/powerwasher_additional1.jpg" class="d-block w-100" alt="Power Washer Game Image 2">
+                                    <img src="assets/img/powerwasher_additional1.jpg" class="d-block w-100"
+                                        alt="Power Washer Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/powerwasher_additional2.jpg" class="d-block w-100" alt="Power Washer Game Image 3">
+                                    <img src="assets/img/powerwasher_additional2.jpg" class="d-block w-100"
+                                        alt="Power Washer Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPowerWasher" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPowerWasher"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPowerWasher" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPowerWasher"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <p class="mt-3">A HyperCasual game developed in Unity, featuring satisfying cleaning mechanics and vibrant visuals for a relaxing mobile experience.</p>
-                        <a href="https://youtube.com/shorts/zuLA9_1Xcsc?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
+                        <p class="mt-3">A HyperCasual game developed in Unity, featuring satisfying cleaning mechanics
+                            and vibrant visuals for a relaxing mobile experience.</p>
+                        <a href="https://youtube.com/shorts/zuLA9_1Xcsc?feature=share" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -908,29 +1031,35 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselPottery" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselPottery" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="assets/img/Pottery.webp" class="d-block w-100" alt="Pottery Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/pottery_additional1.jpg" class="d-block w-100" alt="Pottery Game Image 2">
+                                    <img src="assets/img/pottery_additional1.jpg" class="d-block w-100"
+                                        alt="Pottery Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/pottery_additional2.jpg" class="d-block w-100" alt="Pottery Game Image 3">
+                                    <img src="assets/img/pottery_additional2.jpg" class="d-block w-100"
+                                        alt="Pottery Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPottery" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPottery"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPottery" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselPottery"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zlLZ_2mQtuY" title="Pottery Game" frameborder="0" allowfullscreen></iframe>
-                        <p class="mt-3">A HyperCasual game developed in Unity, allowing players to craft pottery with intuitive controls and appealing visuals.</p>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zlLZ_2mQtuY"
+                            title="Pottery Game" frameborder="0" allowfullscreen></iframe>
+                        <p class="mt-3">A HyperCasual game developed in Unity, allowing players to craft pottery with
+                            intuitive controls and appealing visuals.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -946,29 +1075,35 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselJewelry" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselJewelry" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="assets/img/Jewelry.webp" class="d-block w-100" alt="Jewelry Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/jewelry_additional1.jpg" class="d-block w-100" alt="Jewelry Game Image 2">
+                                    <img src="assets/img/jewelry_additional1.jpg" class="d-block w-100"
+                                        alt="Jewelry Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/jewelry_additional2.jpg" class="d-block w-100" alt="Jewelry Game Image 3">
+                                    <img src="assets/img/jewelry_additional2.jpg" class="d-block w-100"
+                                        alt="Jewelry Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselJewelry" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselJewelry"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselJewelry" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselJewelry"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/P7f7cbz-eLo" title="Jewelry Game" frameborder="0" allowfullscreen></iframe>
-                        <p class="mt-3">A HyperCasual game developed in Unity, featuring jewelry crafting mechanics and visually appealing designs for a casual audience.</p>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/P7f7cbz-eLo"
+                            title="Jewelry Game" frameborder="0" allowfullscreen></iframe>
+                        <p class="mt-3">A HyperCasual game developed in Unity, featuring jewelry crafting mechanics and
+                            visually appealing designs for a casual audience.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -984,29 +1119,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselRPSRun" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselRPSRun" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/RPS-Run.webp" class="d-block w-100" alt="Rock Paper Scissors Game Image 1">
+                                    <img src="assets/img/RPS-Run.webp" class="d-block w-100"
+                                        alt="Rock Paper Scissors Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/rpsrun_additional1.jpg" class="d-block w-100" alt="Rock Paper Scissors Game Image 2">
+                                    <img src="assets/img/rpsrun_additional1.jpg" class="d-block w-100"
+                                        alt="Rock Paper Scissors Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/rpsrun_additional2.jpg" class="d-block w-100" alt="Rock Paper Scissors Game Image 3">
+                                    <img src="assets/img/rpsrun_additional2.jpg" class="d-block w-100"
+                                        alt="Rock Paper Scissors Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselRPSRun" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselRPSRun"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselRPSRun" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselRPSRun"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_qQFjCIhamA" title="Rock Paper Scissors Game" frameborder="0" allowfullscreen></iframe>
-                        <p class="mt-3">A HyperCasual game developed in Unity, reimagining the classic Rock Paper Scissors with fast-paced runner mechanics and vibrant visuals.</p>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_qQFjCIhamA"
+                            title="Rock Paper Scissors Game" frameborder="0" allowfullscreen></iframe>
+                        <p class="mt-3">A HyperCasual game developed in Unity, reimagining the classic Rock Paper
+                            Scissors with fast-paced runner mechanics and vibrant visuals.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -1014,7 +1156,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalCandyMaster" tabindex="-1" aria-labelledby="modalCandyMasterLabel" aria-hidden="true">
+        <div class="modal fade" id="modalCandyMaster" tabindex="-1" aria-labelledby="modalCandyMasterLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
@@ -1022,29 +1165,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="carouselCandyMaster" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselCandyMaster" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="assets/img/CandyMaster.webp" class="d-block w-100" alt="Candy Master Game Image 1">
+                                    <img src="assets/img/CandyMaster.webp" class="d-block w-100"
+                                        alt="Candy Master Game Image 1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/candymaster_additional1.jpg" class="d-block w-100" alt="Candy Master Game Image 2">
+                                    <img src="assets/img/candymaster_additional1.jpg" class="d-block w-100"
+                                        alt="Candy Master Game Image 2">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="assets/img/candymaster_additional2.jpg" class="d-block w-100" alt="Candy Master Game Image 3">
+                                    <img src="assets/img/candymaster_additional2.jpg" class="d-block w-100"
+                                        alt="Candy Master Game Image 3">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCandyMaster" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCandyMaster"
+                                data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselCandyMaster" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselCandyMaster"
+                                data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/tgStZYfEhZE" title="Candy Master Game" frameborder="0" allowfullscreen></iframe>
-                        <p class="mt-3">A HyperCasual game developed in Unity, featuring candy-themed mechanics and colorful visuals for an engaging mobile experience.</p>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/tgStZYfEhZE"
+                            title="Candy Master Game" frameborder="0" allowfullscreen></iframe>
+                        <p class="mt-3">A HyperCasual game developed in Unity, featuring candy-themed mechanics and
+                            colorful visuals for an engaging mobile experience.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -1075,7 +1225,8 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="https://www.linkedin.com/in/erfansheikh/">
+                        <a class="social-link rounded-circle text-white"
+                            href="https://www.linkedin.com/in/erfansheikh/">
                             <i class="icon-social-linkedin"></i>
                         </a>
                     </li>
@@ -1093,4 +1244,5 @@
         <script src="js/scripts.js"></script>
     </section>
 </body>
+
 </html>
