@@ -1,31 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
 
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) --> 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4NVD2011E"></script> 
     <script> 
-    window.dataLayer = window.dataLayer || []; 
-    function gtag(){dataLayer.push(arguments);} 
-    gtag('js', new Date()); 
-    gtag('config', 'G-Q4NVD2011E'); 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', 'G-Q4NVD2011E'); 
     </script> 
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description"
-        content="Erfan Sheikh's portfolio showcasing work in Unity development, 3D modeling, shader programming, and game design.">
+    <meta name="description" content="Erfan Sheikh's portfolio showcasing work in Unity development, 3D modeling, shader programming, and game design.">
     <meta name="author" content="Erfan Sheikhhoseini" />
     <title>Erfan Sheikh Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-        rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-
 <body id="page-top">
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper">
@@ -52,7 +85,6 @@
                 <h2 class="mb-5">What I Do</h2>
             </div>
             <div class="row gx-4 gx-lg-5">
-                <!-- Coding -->
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <img class="img-fluid" src="assets/img/code.png" alt="C# Coding in unity" />
@@ -60,16 +92,13 @@
                     <h4><strong>Coding</strong></h4>
                     <p class="text-faded mb-0">Unity C# and Python</p>
                 </div>
-                <!-- Shader Magic -->
                 <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <span class="service-icon rounded-circle mx-auto mb-3">
-                        <img class="img-fluid" src="assets/img/Shader.png"
-                            alt="Shader creation for unity using hlsl and shader graph" />
+                        <img class="img-fluid" src="assets/img/Shader.png" alt="Shader creation for unity using hlsl and shader graph" />
                     </span>
                     <h4><strong>Shader Magic</strong></h4>
                     <p class="text-faded mb-0">HLSL, Shader Graph & VFX Graph</p>
                 </div>
-                <!-- 3D Modeling -->
                 <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
                     <span class="service-icon rounded-circle mx-auto mb-3">
                         <img class="img-fluid" src="assets/img/3d-Modeling.png" alt="3d modeling in blender" />
@@ -77,16 +106,13 @@
                     <h4><strong>3D Modeling & Rendering</strong></h4>
                     <p class="text-faded mb-0">Blender, Maya and Cinema4d</p>
                 </div>
-                <!-- Texturing -->
                 <div class="col-lg-3 col-md-6">
                     <span class="service-icon rounded-circle mx-auto mb-3">
-                        <img class="img-fluid" src="assets/img/Texturing.png"
-                            alt="Texture painting and uv mapping with substance painter and maya" />
+                        <img class="img-fluid" src="assets/img/Texturing.png" alt="Texture painting and uv mapping with substance painter and maya" />
                     </span>
                     <h4><strong>Texturing & UV Mapping</strong></h4>
                     <p class="text-faded mb-0">Substance Painter</p>
                 </div>
-                <!-- Decorative elements -->
                 <span class="black-circle"></span>
                 <span class="black-circle"></span>
                 <span class="black-circle"></span>
@@ -103,7 +129,6 @@
                 <button class="btn btn-outline-light mx-1" onclick="filterProjects('recent')">Recent Projects</button>
             </div>
             <div class="row gx-0">
-                <!-- Shader Experiment -->
                 <div id="Shader02" class="col-lg-3 project-item techArt recent">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalShader02">
                         <div class="caption">
@@ -115,7 +140,6 @@
                         <img class="img-fluid" src="assets/img/portfolio-5.jpg" alt="Monument Valley game shader replica" />
                     </a>
                 </div>
-                <!-- Environment Art -->
                 <div id="EnvArt" class="col-lg-3 project-item techArt">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalEnvArt">
                         <div class="caption">
@@ -127,7 +151,6 @@
                         <img class="img-fluid" src="assets/img/bg-masthead.jpg" alt="Unity hdrp realistic shaders and effects" />
                     </a>
                 </div>
-                <!-- Grass Shader -->
                 <div id="Shader01" class="col-lg-3 project-item techArt">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalShader01">
                         <div class="caption">
@@ -139,7 +162,6 @@
                         <img class="img-fluid" src="assets/img/portfolio-4.jpg" alt="Unity hdrp realistic grass shader" />
                     </a>
                 </div>
-                <!-- Machinarium FanArt -->
                 <div id="Machinarium" class="col-lg-3 project-item techArt">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalMachinarium">
                         <div class="caption">
@@ -151,7 +173,6 @@
                         <img class="img-fluid" src="assets/img/portfolio-3.jpg" alt="3d modeling and texture painting in cinema4d, blender and substance painter" />
                     </a>
                 </div>
-                <!-- Aurora Menu -->
                 <div id="Aurora1" class="col-lg-3 project-item techArt recent">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalAurora1">
                         <div class="caption">
@@ -163,7 +184,6 @@
                         <img class="img-fluid" src="assets/img/portfolio-1.jpg" alt="Minimalistic shaders and effect for an indie mobile game" />
                     </a>
                 </div>
-                <!-- Aurora In Game -->
                 <div id="Aurora2" class="col-lg-3 project-item techArt recent">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalAurora2">
                         <div class="caption">
@@ -175,7 +195,6 @@
                         <img class="img-fluid" src="assets/img/portfolio-2.jpg" alt="Minimalistic shaders and effect for an indie mobile game" />
                     </a>
                 </div>
-                <!-- 4Wheelers Game -->
                 <div id="4Wheelers" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modal4Wheelers">
                         <div class="caption">
@@ -187,7 +206,6 @@
                         <img class="img-fluid" src="assets/img/4Wheelers.webp" alt="Award winning game called 4wheelers" />
                     </a>
                 </div>
-                <!-- Couples Yoga Game -->
                 <div id="CouplesYoga" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalCouplesYoga">
                         <div class="caption">
@@ -199,7 +217,6 @@
                         <img class="img-fluid" src="assets/img/CouplesYoga.webp" alt="Voodoo HyperCasual game Couples Yoga" />
                     </a>
                 </div>
-                <!-- Starla Game -->
                 <div id="Starla" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalStarla">
                         <div class="caption">
@@ -211,7 +228,6 @@
                         <img class="img-fluid" src="assets/img/Starla.webp" alt="Space shooter game Starla" />
                     </a>
                 </div>
-                <!-- Beauty Salon Game -->
                 <div id="BeautySalon" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalBeautySalon">
                         <div class="caption">
@@ -223,7 +239,6 @@
                         <img class="img-fluid" src="assets/img/BeatySalon V3.webp" alt="HyperCasual game Beauty Salon" />
                     </a>
                 </div>
-                <!-- Dr Care Game -->
                 <div id="DrCare" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalDrCare">
                         <div class="caption">
@@ -235,7 +250,6 @@
                         <img class="img-fluid" src="assets/img/Dr-Care.webp" alt="HyperCasual game Dr Care" />
                     </a>
                 </div>
-                <!-- Ice Slide Game -->
                 <div id="IceSlide" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalIceSlide">
                         <div class="caption">
@@ -247,7 +261,6 @@
                         <img class="img-fluid" src="assets/img/IceSlide.webp" alt="HyperCasual game Ice Slide" />
                     </a>
                 </div>
-                <!-- Make Your Mac Game -->
                 <div id="Ipear" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalIpear">
                         <div class="caption">
@@ -259,7 +272,6 @@
                         <img class="img-fluid" src="assets/img/Ipear.webp" alt="HyperCasual game Make Your Mac" />
                     </a>
                 </div>
-                <!-- Power Washer Game -->
                 <div id="PowerWasher" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalPowerWasher">
                         <div class="caption">
@@ -271,7 +283,6 @@
                         <img class="img-fluid" src="assets/img/PowerWasher.webp" alt="HyperCasual game Power Washer" />
                     </a>
                 </div>
-                <!-- Pottery Game -->
                 <div id="Pottery" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalPottery">
                         <div class="caption">
@@ -283,7 +294,6 @@
                         <img class="img-fluid" src="assets/img/Pottery.webp" alt="HyperCasual game Pottery" />
                     </a>
                 </div>
-                <!-- Jewelry Game -->
                 <div id="Jewelry" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalJewelry">
                         <div class="caption">
@@ -295,7 +305,6 @@
                         <img class="img-fluid" src="assets/img/Jewelry.webp" alt="HyperCasual game Jewelry" />
                     </a>
                 </div>
-                <!-- Rock Paper Scissors Game -->
                 <div id="RPSRun" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalRPSRun">
                         <div class="caption">
@@ -307,7 +316,6 @@
                         <img class="img-fluid" src="assets/img/RPS-Run.webp" alt="HyperCasual game Rock Paper Scissors" />
                     </a>
                 </div>
-                <!-- Candy Master Game -->
                 <div id="CandyMaster" class="col-lg-3 project-item gameDev">
                     <a class="portfolio-item" href="#" data-bs-toggle="modal" data-bs-target="#modalCandyMaster">
                         <div class="caption">
@@ -323,12 +331,10 @@
                 <a id="ShowMoreButton" class="btn btn-primary btn-xl" href="javascript:void(0);" onclick="showAllInCategory()">Load More</a>
             </div>
         </div>
-
         <!-- Modals -->
-        <!-- Modal for Shader Experiment -->
         <div class="modal fade" id="modalShader02" tabindex="-1" aria-labelledby="modalShader02Label" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalShader02Label">Shader Experiment</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -359,15 +365,14 @@
                         <a href="https://www.artstation.com/artwork/BX2bL4" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Environment Art -->
         <div class="modal fade" id="modalEnvArt" tabindex="-1" aria-labelledby="modalEnvArtLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalEnvArtLabel">Environment Art</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -398,15 +403,14 @@
                         <a href="https://www.artstation.com/artwork/6N5Xlx" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Grass Shader -->
         <div class="modal fade" id="modalShader01" tabindex="-1" aria-labelledby="modalShader01Label" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalShader01Label">Grass Shader</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -437,15 +441,14 @@
                         <a href="https://www.artstation.com/artwork/Rya2RO" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Machinarium FanArt -->
         <div class="modal fade" id="modalMachinarium" tabindex="-1" aria-labelledby="modalMachinariumLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalMachinariumLabel">Machinarium FanArt</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -476,15 +479,14 @@
                         <a href="https://www.artstation.com/artwork/P06D1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on ArtStation</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Aurora Menu -->
         <div class="modal fade" id="modalAurora1" tabindex="-1" aria-labelledby="modalAurora1Label" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalAurora1Label">Aurora Menu</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -515,15 +517,14 @@
                         <a href="https://youtu.be/iAP0hbyaSK0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Aurora In Game -->
         <div class="modal fade" id="modalAurora2" tabindex="-1" aria-labelledby="modalAurora2Label" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalAurora2Label">Aurora In Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -554,15 +555,14 @@
                         <a href="https://youtu.be/UeOFgDJrB90" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for 4Wheelers Game -->
         <div class="modal fade" id="modal4Wheelers" tabindex="-1" aria-labelledby="modal4WheelersLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modal4WheelersLabel">4Wheelers Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -593,15 +593,14 @@
                         <a href="https://www.imgawards.com/game-of-the-week/4wheelers-imga-mena-best-multiplayer-game-with-a-damn-good-design-too/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on IMGA</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Couples Yoga Game -->
         <div class="modal fade" id="modalCouplesYoga" tabindex="-1" aria-labelledby="modalCouplesYogaLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalCouplesYogaLabel">Couples Yoga Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -632,15 +631,14 @@
                         <a href="https://play.google.com/store/apps/details?id=com.tippytap.yoga&hl=en&gl=US" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on Google Play</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Starla Game -->
         <div class="modal fade" id="modalStarla" tabindex="-1" aria-labelledby="modalStarlaLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalStarlaLabel">Starla Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -671,15 +669,14 @@
                         <a href="https://play.google.com/store/apps/details?id=games.FunTherapy.StarlaTheFinalFrontier" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on Google Play</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Beauty Salon Game -->
         <div class="modal fade" id="modalBeautySalon" tabindex="-1" aria-labelledby="modalBeautySalonLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalBeautySalonLabel">Beauty Salon Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -710,15 +707,14 @@
                         <a href="https://youtube.com/shorts/yLbhTmEwLs8?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Dr Care Game -->
         <div class="modal fade" id="modalDrCare" tabindex="-1" aria-labelledby="modalDrCareLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalDrCareLabel">Dr Care Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -749,15 +745,14 @@
                         <a href="https://youtube.com/shorts/slAyZdgGu9M?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Ice Slide Game -->
         <div class="modal fade" id="modalIceSlide" tabindex="-1" aria-labelledby="modalIceSlideLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalIceSlideLabel">Ice Slide Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -788,15 +783,14 @@
                         <a href="https://apps.apple.com/us/app/ice-sling/id1549363450" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on App Store</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Make Your Mac Game -->
         <div class="modal fade" id="modalIpear" tabindex="-1" aria-labelledby="modalIpearLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalIpearLabel">Make Your Mac Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -827,15 +821,14 @@
                         <a href="https://youtube.com/shorts/AHJmubpwkDk?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Power Washer Game -->
         <div class="modal fade" id="modalPowerWasher" tabindex="-1" aria-labelledby="modalPowerWasherLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalPowerWasherLabel">Power Washer Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -866,15 +859,14 @@
                         <a href="https://youtube.com/shorts/zuLA9_1Xcsc?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Pottery Game -->
         <div class="modal fade" id="modalPottery" tabindex="-1" aria-labelledby="modalPotteryLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalPotteryLabel">Pottery Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -905,15 +897,14 @@
                         <a href="https://youtube.com/shorts/zlLZ_2mQtuY?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Jewelry Game -->
         <div class="modal fade" id="modalJewelry" tabindex="-1" aria-labelledby="modalJewelryLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalJewelryLabel">Jewelry Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -944,15 +935,14 @@
                         <a href="https://youtube.com/shorts/P7f7cbz-eLo?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Rock Paper Scissors Game -->
         <div class="modal fade" id="modalRPSRun" tabindex="-1" aria-labelledby="modalRPSRunLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalRPSRunLabel">Rock Paper Scissors Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -983,15 +973,14 @@
                         <a href="https://youtube.com/shorts/_qQFjCIhamA?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal for Candy Master Game -->
         <div class="modal fade" id="modalCandyMaster" tabindex="-1" aria-labelledby="modalCandyMasterLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content bg-tertiary text-white">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalCandyMasterLabel">Candy Master Game</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1022,7 +1011,7 @@
                         <a href="https://youtube.com/shorts/tgStZYfEhZE?feature=share" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on YouTube</a>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -1040,21 +1029,16 @@
             <div class="container px-4 px-lg-5">
                 <ul class="list-inline mb-5">
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="https://twitter.com/_erfan_sh"><i
-                                class="icon-social-twitter"></i></a>
+                        <a class="social-link rounded-circle text-white mr-3" href="https://twitter.com/_erfan_sh"><i class="icon-social-twitter"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="https://github.com/Erfan-Sheikh"><i
-                                class="icon-social-github"></i></a>
+                        <a class="social-link rounded-circle text-white mr-3" href="https://github.com/Erfan-Sheikh"><i class="icon-social-github"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white"
-                            href="https://www.linkedin.com/in/erfansheikh/"><i class="icon-social-linkedin"></i></a>
+                        <a class="social-link rounded-circle text-white" href="https://www.linkedin.com/in/erfansheikh/"><i class="icon-social-linkedin"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white"
-                            href="https://www.artstation.com/nepstersh"><img class="img-fluid"
-                                src="assets/img/ArtStation.png" alt="ArtStation profile" /></a>
+                        <a class="social-link rounded-circle text-white" href="https://www.artstation.com/nepstersh"><img class="img-fluid" src="assets/img/ArtStation.png" alt="ArtStation profile" /></a>
                     </li>
                 </ul>
                 <p class="text-muted small mb-0">Copyright © Erfan Sheikh 2025</p>
