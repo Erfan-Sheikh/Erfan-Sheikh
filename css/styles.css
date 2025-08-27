@@ -13036,3 +13036,11 @@ footer.footer .social-link:hover {
 .modal-lg {
     max-width: 800px;
 }
+
+.modal-horizontal-stack {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50rem;
+}
