@@ -13044,3 +13044,33 @@ footer.footer .social-link:hover {
     align-items: center;
     gap: 2rem;
 }
+
+
+        .social-link {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.5rem;
+            background: #222;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .social-link i {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .social-link img {
+            width: 1.5rem;
+            height: 1.5rem;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
